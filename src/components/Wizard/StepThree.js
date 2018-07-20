@@ -44,6 +44,7 @@ class StepThree extends Component {
                     <Link to='/'><button>Cancel</button></Link>
                 </div>
                 <div>
+                    <h4>Recommended Rent: ${(this.props.mortgage * 1.25)}</h4>
                     <h3>Monthly Mortgage Amount</h3>
                     <input name='mortgage'
                         onChange={(e) => updateMortgage(e.target.value)}/>

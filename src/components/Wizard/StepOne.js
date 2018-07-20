@@ -6,6 +6,10 @@ import { updateName, updateAddress, updateCity, updateState, updateZip } from '.
 
 class StepOne extends Component {
 
+    componentDidUpdate(prevProps) {
+        console.log("prevProps: ", prevProps)
+        
+    }
 
     render () {
         const { updateName, updateAddress, updateCity, updateState, updateZip } = this.props;
