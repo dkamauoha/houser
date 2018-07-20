@@ -21,7 +21,16 @@ class StepThree extends Component {
     }
 
     addHouse () {
-        axios.post('/api/houses', {name: this.state.name, address: this.state.address, city: this.state.city, state: this.state.state, zip: this.state.zip})
+        axios.post('/api/houses', {
+                name: this.props.name,
+                address: this.props.address,
+                city: this.props.city,
+                state: this.props.state,
+                zip: this.props.zip,
+                img: this.props.img,
+                mortgage: this.props.mortgage,
+                rent:this.props.rent
+            })
             .then(console.log('House Added'));
         
     }
@@ -30,6 +39,10 @@ class StepThree extends Component {
         const { updateMortgage, updateRent } = this.props;
         return (
             <div>
+                <div className='wizard-header'>
+                    <h1>Add New Listing</h1>
+                    <Link to='/'><button>Cancel</button></Link>
+                </div>
                 <div>
                     <h3>Monthly Mortgage Amount</h3>
                     <input name='mortgage'
@@ -40,7 +53,7 @@ class StepThree extends Component {
                     <input name='rent'
                         onChange={(e) => updateRent(e.target.value)}/>
                 </div>
-                <Link t0='/wizard/step3'><button>Previous Step</button></Link>
+                <Link to='/wizard/step2'><button>Previous Step</button></Link>
                 <Link to='/'><button onClick={() => this.addHouse()}>Complete</button></Link>
             </div>
         )
@@ -48,10 +61,15 @@ class StepThree extends Component {
 }
 
 function mapStateToProps (state) {
-    const { mortgage, rent } = state;
     return {
-        mortgage,
-        rent
+        name: state.name,
+        address: state.address,
+        city: state.city,
+        state: state.state,
+        zip: state.zip,
+        img: state.img,
+        mortgage: state.mortgage,
+        rent: state.rent
     }
 }
 

@@ -12,6 +12,10 @@ class StepOne extends Component {
         return (
             <div>
                 <div>
+                    <div className='wizard-header'>
+                        <h1>Add New Listing</h1>
+                        <Link to='/'><button>Cancel</button></Link>
+                    </div>
                     <div>
                         <h3>Property Name</h3>
                         <input name='name'

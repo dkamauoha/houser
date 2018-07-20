@@ -9,7 +9,9 @@ import StepThree from './components/Wizard/StepThree';
 const routes = (
     <Switch>
         <Route component={Dashboard} exact path='/'/>
-        <Route component={Wizard} path ='/wizard/step1'/>
+        <Route component={StepOne} path ='/wizard/step1'/>
+        <Route component={StepTwo} path ='/wizard/step2'/>
+        <Route component={StepThree} path='/wizard/step3'/>
     </Switch>
 )
 
