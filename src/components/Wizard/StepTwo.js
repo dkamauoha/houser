@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class StepTwo extends Component {
-    constructor () {
-        super();
-        this.state = {
-            img: ''
-        }
-    }
+import { updateImg } from '../../ducks/reducer';
 
-    handleInput(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
+class StepTwo extends Component {
     render() {
+        const { updateImg } = this.props;
         return (
             <div>
                 <div className='wizard-header'>
@@ -25,11 +16,19 @@ export default class StepTwo extends Component {
                 <div>
                     <h3>Image URL:</h3>
                     <input name='img'
-                        onChange={(e) => this.handleInput(e)}/>
+                        onChange={(e) => updateImg(e.target.value)}/>
                 </div>
-                <Link t0='/wizard/step1'><button>Previous Step</button></Link>
+                <Link to='/wizard/step1'><button>Previous Step</button></Link>
                 <Link to='/wizard/step3'><button>Next Step</button></Link>
             </div>
         )
     }
 }
+
+function mapStateToProps (state) {
+    return {
+        img: state.img
+    }
+}
+
+export default connect(mapStateToProps, { updateImg })(StepTwo);

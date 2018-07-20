@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import axios from 'axios';
-import StepOne from './steps/StepOne';
-import StepTwo from './steps/StepTwo';
-import StepThree from './steps/StepThree';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
+import StepThree from './StepThree';
 
 
 export default (

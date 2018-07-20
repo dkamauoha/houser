@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 import routes from './routes';
 
 //Components
-import Dashboard from './components/Dashboard/Dashboard';
-import Wizard from './components/Wizard/Wizard';
+
 import Header from './components/Header/Header';
 
 class App extends Component {

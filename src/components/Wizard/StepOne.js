@@ -1,56 +1,41 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
-class StepOne extends Component {
-    constructor () {
-        super();
-        this.state = {
-            name: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: 0
-        }
-    }
+import { updateName, updateAddress, updateCity, updateState, updateZip } from '../../ducks/reducer';
 
-    handleInput(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+class StepOne extends Component {
+
 
     render () {
-        console.log(this.state);
-        console.log(this.props);
+        const { updateName, updateAddress, updateCity, updateState, updateZip } = this.props;
         return (
             <div>
                 <div>
                     <div>
                         <h3>Property Name</h3>
                         <input name='name'
-                            onChange={(e) => this.handleInput(e)}/>
+                            onChange={(e) => updateName(e.target.value)}/>
                     </div>
                     <div>
                         <h3>Address</h3>
                         <input name='address'
-                            onChange={(e) => this.handleInput(e)}/>
+                            onChange={(e) => updateAddress(e.target.value)}/>
                     </div>
                     <div>
                         <h3>City</h3>
                         <input name='city'
-                            onChange={(e) => this.handleInput(e)}/>
+                            onChange={(e) => updateCity(e.target.value)}/>
                     </div>
                     <div>
                         <h3>State</h3>
                         <input name='state'
-                            onChange={(e) => this.handleInput(e)}/>
+                            onChange={(e) => updateState(e.target.value)}/>
                     </div>
                     <div>
                         <h3>Zip</h3>
                         <input name='zip'
-                            onChange={(e) => this.handleInput(e)}/>
+                            onChange={(e) => updateZip(e.target.value)}/>
                     </div>
                     <Link to='/wizard/step2'><button>Next Step</button></Link>
                 </div>
@@ -69,4 +54,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps)(StepOne);
+export default connect(mapStateToProps, { updateName, updateAddress, updateCity, updateState, updateZip })(StepOne);
